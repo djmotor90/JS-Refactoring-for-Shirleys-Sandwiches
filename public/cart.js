@@ -12,6 +12,7 @@ const cart = {
         const sandwichUl = document.querySelector('.sandwich-list');
 
         // Empty the sandwichUl before adding any content to it.
+        
         sandwichUl.innerHTML = '';
 
         this.items.forEach((sandwich) => {
@@ -19,17 +20,18 @@ const cart = {
             sandwichUl.append(sandwichDiv)
         })
     },
-
+    
     // Creates a DIV to display a single sandwich
     createSandwichCard(sandwich) {
         const sandwichCard = document.createElement('div');
         sandwichCard.className = cart.selectedSandwich.id === sandwich.id ? 'm-3 card border-primary' : 'm-3 card'
         sandwichCard.style.cursor = 'pointer';
+        const {id, name, bread, ingredients} = sandwich;
         sandwichCard.innerHTML = `
         <div class="card-body">
-            <h5 class="card-title">${sandwich.id}. ${sandwich.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${sandwich.bread}</h6>
-            <p class="card-text">${sandwich.ingredients.join(', ')}</p>
+            <h5 class="card-title">${id}. ${name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${bread}</h6>
+            <p class="card-text">${ingredients.join(', ')}</p>
             <button class="btn btn-secondary duplicate-button">Duplicate</button>
             <button class="btn btn-danger delete-button">Delete</button>
         </div>

@@ -1,5 +1,5 @@
 // Utility for making multiple fetch requests at the same time
-function getAll(url1, url2, url3, url4) {
+function getAll(...url) {
     let promises = []
     if (url1) {
         let promise = fetch(url1)
